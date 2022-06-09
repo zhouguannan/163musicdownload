@@ -72,9 +72,20 @@ def get_song_artist_name(song_id,cookies):
     decoded = json.loads(resp.text)
     output = ""
     count = 0
+    count2 = 1
     artist = decoded["songs"][0]["ar"]
     for i in artist:
-        output = output + i['name'] + ", "
+        count = count + 1
+    print(count)
+    if count > 1: 
+        for i in artist:
+            if count2 <= count - 1:
+                output = output + i['name'] + ", "
+            if count2 == count :
+                output = output + i['name']
+            count2 = count2 + 1
+    elif count == 1:
+        output = i['name']
     return output
     
         
