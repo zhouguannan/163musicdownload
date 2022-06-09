@@ -41,9 +41,9 @@ def get_user_description(uid,cookies):
     return decoded["profile"]["signature"]
 
 def get_song_url(song_id,cookies):
-    resp = requests.get(url="http://localhost:3000/song/download/url?id="+str(song_id),cookies=cookies)
+    resp = requests.get(url="http://localhost:3000/song/url?id="+str(song_id),cookies=cookies)
     decoded = json.loads(resp.text)
-    return decoded["data"]["url"]
+    return decoded["data"][0]["url"]
 
 def is_song_flac(song_id,cookies):
     resp = requests.get(url="http://localhost:3000/song/url?id="+str(song_id),cookies=cookies)
