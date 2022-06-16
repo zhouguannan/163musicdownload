@@ -80,7 +80,7 @@ def get_song_artist_name(song_id,cookies):
     if count > 1: 
         for i in artist:
             if count2 <= count - 1:
-                output = output + i['name'] + ", "
+                output = output + i['name'] + " / "
             if count2 == count :
                 output = output + i['name']
             count2 = count2 + 1
